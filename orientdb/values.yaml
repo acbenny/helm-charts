@@ -24,6 +24,7 @@ service:
   hazelcast: 2434
   orientBinary: 2424
   gremlinWebsocket: 8182
+  consul-service-sync: true
 
 ingress:
   enabled: false
