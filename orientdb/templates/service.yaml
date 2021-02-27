@@ -7,10 +7,6 @@ metadata:
     chart: {{ template "orientdb.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-  {{- if .Values.service.consul-service-sync -}}
-  annotations:
-    consul.hashicorp.com/service-sync: 'true'
-  {{- end }}
 spec:
   type: ClusterIP
   ports:
@@ -42,6 +38,10 @@ metadata:
     chart: {{ template "orientdb.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+  {{- if .Values.service.consulServiceSync }}
+  annotations:
+    consul.hashicorp.com/service-sync: 'true'
+  {{- end }}
 spec:
   type: {{ .Values.service.type }}
   ports:
